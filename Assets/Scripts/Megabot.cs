@@ -12,10 +12,12 @@ public class Megabot : MonoBehaviour
     private bool onFloor = false;
     private Vector2 direction = Vector2.zero;
     private Rigidbody2D rb;
+    private Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,6 +28,10 @@ public class Megabot : MonoBehaviour
         }
 
         GroundCheck();
+
+        anim.SetBool("jumping", !onFloor);
+        anim.SetBool("shooting", Input.GetButton("Fire1"));
+        anim.SetBool("running", Input.GetAxisRaw("Horizontal") != 0);
     }
 
     void FixedUpdate()
