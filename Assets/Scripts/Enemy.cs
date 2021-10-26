@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -22,5 +20,13 @@ public class Enemy : MonoBehaviour
             transform.right = Vector2.right;
 
         transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+
+        if (health <= 0)
+            Destroy(gameObject);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
