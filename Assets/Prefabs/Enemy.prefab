@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   speed: 4
+  explosion: {fileID: 5049312581874263263, guid: 3953bad5eca891b4fa50c71460c9bb2a, type: 3}
 --- !u!95 &8744637107808124265
 Animator:
   serializedVersion: 3

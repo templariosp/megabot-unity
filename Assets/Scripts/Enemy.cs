@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public int health = 2;
     public float speed = 4f;
+    public GameObject explosion;
 
     private Transform playerTransform;
 
@@ -22,7 +23,10 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
 
         if (health <= 0)
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(int damage)
